@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :guitars
   namespace :api do
-    namespace :v1 do 
+    namespace :v1 do
+      resources :guitars 
   resources :users
     end
   end
