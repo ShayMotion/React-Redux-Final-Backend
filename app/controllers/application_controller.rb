@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::API
+    include ::ActionController::Cookies
     helpers do
         def current_user
-            User.first
+            User.find(id: session[:user_id])
         end
 
         def logged_in?
