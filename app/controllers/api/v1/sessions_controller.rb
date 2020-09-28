@@ -10,8 +10,24 @@ class Api::V1::SessionsController < ApplicationController
                 error: "Invalid Credentials"
             }
     end
+end
 
-    def 
+    def get_current_user
+        if_logged_in?
+        render json: UserSerializer.new(current_user)
+    else 
+        render json: {
+            error: "No one logged in"
+        }
+        end
+
+    end
+
+    def destroy
+        session.clear
+        render json: {
+            notice: "successfully logged out"
+        }, status: :ok
     end
 
 end
