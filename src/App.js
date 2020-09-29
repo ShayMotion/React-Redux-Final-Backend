@@ -1,35 +1,59 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { connect } from 'react-redux'
+import { getCurrentUser } from "./actions/currentUser.js" 
+import NavBar from "./components/NavBar.js"
+import Home from './components/Home.js'
+import Login from './components/Login.js'
+import Signup from './components/Signup.js'
+import MyAuctions from './components/MyAuctions.js'
+import AuctionCard from './components/AuctionCard.js'
+import NewAuctionFormWrapper from './components/NewAuctionFormWrapper.js'
+import EditAuctionFormWrapper from './components/EditAuctionFormWrapper.js'
+import { Route, Switch, withRouter } from 'react-router-dom'
+
 
 class App extends React.Component {
+
   componentDidMount() {
-    fetch("http://localhost:3000/api/v1/users/1")
-      .then(r=>r.json())
-      .then(console.log)
+    this.props.getCurrentUser()
   }
   render(){
+    const { loggedIn, auctions } = this.props
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+   <div> 
+   { loggedIn ? <NavBar/> : <Home/> }
+   <NavBar/>
+   <Switch>
+   <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
+   <Route exact path='/login' component={Login}/>
+   <Route exact path='/auctions' component={MyAuctions}/>
+   <Route exact path='/auctions/new' component={NewAuctionFormWrapper}/>
+   <Route exact path='/auctions/:id' render={props => {
+
+    const auction = auctions.find(auction => auction.id === props.match.params.id)
+    console.log(auction)
+    return <AuctionCard auction={auction} {...props}/>
+    }
+   }/>
+<Route exact path='/auctions/id/edit' render={props => {
+ const auction = auctions.find(auction => auction.id === props.match.params.id)
+  return <EditAuctionFormWrapper auction={auction} {...props}/>
+}
+}/>
+      </Switch>
       </div>
     );
-
   }
-
 }
 
-export default App;
+const mapStateToProps = state => {
+  return ({
+    loggedIn: !!state.currentUser,
+      auctions: state.myAuctions
+  })
+}
+
+
+
+export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
