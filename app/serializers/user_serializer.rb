@@ -8,8 +8,5 @@ class UserSerializer
       state: user.hometown.state,
       country: user.hometown.country
     }
-end
-
-def hometown
   end
 end
