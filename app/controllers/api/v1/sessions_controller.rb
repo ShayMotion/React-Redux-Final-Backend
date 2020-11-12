@@ -9,11 +9,11 @@ class Api::V1::SessionsController < ApplicationController
             render json: {
                 error: "Invalid Credentials"
             }
+        end
     end
-end
 
     def get_current_user
-        if_logged_in?
+        if logged_in?
         render json: UserSerializer.new(current_user), status: ok
     else 
         render json: {
