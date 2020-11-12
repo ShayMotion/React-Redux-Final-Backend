@@ -65,7 +65,7 @@ export const createAuction = (auctionData, history) => {
                 user_id: auctionData.userId
             }
         }
-        return fetch("http://localhost:3001/api/v1/auctions", {
+        return fetch("http://localhost:3002/api/v1/auctions", {
          credentials: "include",   
         method: "POST",
         headers: {
@@ -96,7 +96,7 @@ export const updateAuction = (auctionData, history) => {
                 name: auctionData.name,
             }
         }
-        return fetch(`http://localhost:3001/api/v1/auctions/${auctionData.AuctionId}`, {
+        return fetch(`http://localhost:3002/api/v1/auctions/${auctionData.AuctionId}`, {
          credentials: "include",   
         method: "PATCH",
         headers: {
@@ -119,7 +119,7 @@ export const updateAuction = (auctionData, history) => {
 
 export const deleteAuction = (auctionId, history) => {
 return dispatch => {
-    return fetch(`http://localhost:3001/api/v1/auctions/${auctionId}`, {
+    return fetch(`http://localhost:3002/api/v1/auctions/${auctionId}`, {
      credentials: "include",   
     method: "DELETE",
     headers: {

@@ -3,6 +3,7 @@
 }
 
 .App-logo {
+  animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
 }
@@ -11,6 +12,14 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+body {
+  background-image: url("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.wallpapersin4k.org%2Fwp-content%2Fuploads%2F2017%2F04%2FBass-Guitar-HD-Wallpaper-14.jpg&f=1&nofb=1");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .App-header {
@@ -49,4 +58,23 @@ a.active {
 
 #loggedin {
   font-size: 7px;
+}
+
+h1 {
+  color: white;
+  font-size: 75px;
+}
+
+h2 {
+  color: white;
+}
+
+h3 {
+  color: white;
+  font-size: 35px;
+}
+
+h4 {
+  color: white;
+  font-size: 15px;
 }

@@ -4,7 +4,7 @@ import currentUser from './reducers/currentUser'
 import loginForm from './reducers/loginForm'
 import myAuctions from './reducers/myAuctions'
 import signupForm from './reducers/signupForm'
-import AuctionForm from './reducers/AuctionForm'
+import auctionForm from './reducers/auctionForm'
 import  thunk  from 'redux-thunk' 
 
 const reducer = combineReducers({
@@ -12,7 +12,7 @@ const reducer = combineReducers({
   loginForm,
   myAuctions,
   signupForm,
-  AuctionForm
+  auctionForm
 
 })
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

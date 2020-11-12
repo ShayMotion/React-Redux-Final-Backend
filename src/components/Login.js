@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { updateLoginForm } from "../actions/loginForm.js"
 import { login } from "../actions/currentUser.js" 
 
+ 
+
 const Login = ({ loginFormData, updateLoginForm, login, history }) => {
 
     const handleInputChange = event => {
@@ -18,6 +20,7 @@ const Login = ({ loginFormData, updateLoginForm, login, history }) => {
         event.preventDefault()
         login(loginFormData, history)
     }
+
     return (
         <form onSubmit={handleSubmit}>
         <input placeholder="username" value={loginFormData.username} name="username" type="text" onChange={handleInputChange} />
@@ -29,7 +32,7 @@ const Login = ({ loginFormData, updateLoginForm, login, history }) => {
 
 const mapStateToProps = state => {
     return {
-        loginForm: state.loginForm
+        loginFormData: state.loginForm
     }
 }
 export default connect(mapStateToProps, { updateLoginForm, login } )(Login)

@@ -18,12 +18,12 @@ class App extends React.Component {
   componentDidMount() {
     this.props.getCurrentUser()
   }
+
   render(){
     const { loggedIn, auctions } = this.props
     return (
-   <div> 
-   { loggedIn ? <NavBar/> : <Home/> }
-   <NavBar/>
+   <div className="App"> 
+   { loggedIn ? <NavBar location={this.props.location}/> : <Home/> }
    <Switch>
    <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
    <Route exact path='/login' component={Login}/>

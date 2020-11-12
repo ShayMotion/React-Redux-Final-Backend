@@ -6,9 +6,9 @@ const Home = () => (
     <span>
    <center> <h1>The Guitar Gallery</h1>
     <h3>Buy and Sell Rare Guitars Online</h3>
-    <Link to="/signup"> Sign Up </Link>
-     or 
-    <Link to="/login">  Log In</Link>
+    <Link to="/signup"> Sign Up </Link> <br></br> 
+     <br></br>
+     <Link to="/login">  Log In</Link>
     </center>
     </span>
     </div>
