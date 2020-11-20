@@ -36,7 +36,7 @@ export const updateAuctionSuccess = auction => {
 
 export const getMyAuctions = () => {
    return dispatch => {
-return fetch("http://localhost:3001/api/v1/auctions", {
+return fetch("http://localhost:3002/api/v1/auctions", {
     credentials: "include",
     method: "GET",
     headers: {

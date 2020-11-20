@@ -15,9 +15,8 @@ return {
     }
 }
 export const login = (credentials, history) => {
-    console.log("credentials are", credentials)
     return dispatch => {
-    return fetch("http://localhost:3001/api/v1/login", {
+    return fetch("http://localhost:3002/api/v1/login", {
         credentials: "include",   
         method: "POST",
         headers: {
@@ -45,7 +44,7 @@ export const login = (credentials, history) => {
             const userInfo = {
                 user: credentials
             }
-            return fetch ("http://localhost:3001/api/v1/signup", {
+            return fetch ("http://localhost:3002/api/v1/signup", {
                 credentials: "include",
                 method: "POST",
                 headers: {
@@ -64,6 +63,7 @@ export const login = (credentials, history) => {
                     history.push('/')
                 }
             })
+            .catch(console.log)
         }
     }
 
@@ -71,7 +71,7 @@ export const logout = event => {
     return dispatch => {
         dispatch(clearCurrentUser())
         dispatch(clearAuctions())
-        return fetch('http://localhost:3001/api/v1/logout', {
+        return fetch('http://localhost:3002/api/v1/logout', {
             credentials: "include",
             method: "DELETE"
         })
@@ -80,7 +80,7 @@ export const logout = event => {
 export const getCurrentUser = () => {
     return dispatch => {
         
-        return fetch("http://localhost:3001/api/v1/get_current_user", {
+        return fetch("http://localhost:3002/api/v1/get_current_user", {
             credentials: "include", 
             method: "GET",
             headers: {
