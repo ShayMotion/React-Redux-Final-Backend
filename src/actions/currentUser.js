@@ -44,6 +44,7 @@ export const login = (credentials, history) => {
             const userInfo = {
                 user: credentials
             }
+            debugger
             return fetch ("http://localhost:3002/api/v1/signup", {
                 credentials: "include",
                 method: "POST",
