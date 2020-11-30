@@ -1,12 +1,12 @@
 class UserSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :username, :name, 
-  has_many :auctions, serializer: AuctionsSerializer
-  attribute :hometown do |user|
+  attributes :username, :name 
+  has_many :auctions, serializer: AuctionSerializer
+  attribute do |user|
     {
-      city: user.hometown.city,
-      state: user.hometown.state,
-      country: user.hometown.country
+      city: user.city,
+      state: user.state,
+      country: user.country
     }
   end
 end
