@@ -1,21 +1,21 @@
 import React from "react";
-import { updateAuctionForm } from "../actions/auctionForm";
+import { updateGuitarForm } from "../actions/guitarForm";
 import { connect } from "react-redux";
 
-const AuctionForm = ({
+const GuitarForm = ({
   formData,
-  updateAuctionForm,
+  updateGuitarForm,
   userId,
-  auction,
+  guitar,
   handleSubmit,
   editMode,
 }) => {
-  const { name, startDate, endDate } = formData;
+  const { brand, model, year, price } = formData;
 
   const handleChange = (event) => {
     console.log("Trigger Handle Change");
     const { name, value } = event.target;
-    updateAuctionForm(name, value);
+    updateGuitarForm(name, value);
   };
 
   return (
@@ -26,29 +26,36 @@ const AuctionForm = ({
       }}
     >
       <input
-        placeholder="name"
-        name="name"
+        placeholder="brand"
+        name="brand"
         onChange={handleChange}
-        value-={name}
+        value-={brand}
       />
       <br />
       <input
-        placeholder="start date"
-        name="startDate"
+        placeholder="model"
+        name="model"
         onChange={handleChange}
-        value={startDate}
+        value={model}
       />
       <br />
       <input
-        placeholder="end date"
-        name="endDate"
+        placeholder="year"
+        name="year"
         onChange={handleChange}
-        value={endDate}
+        value={year}
       />
       <br />
+      <input
+        placeholder="price"
+        name="price"
+        onChange={handleChange}
+        value={price}
+      />
+       <br />
       <input
         type="submit"
-        value={editMode ? "Update Auction" : "Create Auction"}
+        value={editMode ? "Update Guitar" : "Create Guitar"}
       />
     </form>
   );
@@ -57,9 +64,9 @@ const AuctionForm = ({
 const mapStateToProps = (state) => {
   const userId = state.currentUser ? state.currentUser.id : "";
   return {
-    formData: state.auctionForm,
-    userId
+    formData: state.guitarForm,
+    userId,
   };
 };
 
-export default connect(mapStateToProps, { updateAuctionForm })(AuctionForm);
+export default connect(mapStateToProps, { updateGuitarForm })(GuitarForm);

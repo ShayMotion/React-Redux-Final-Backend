@@ -2,11 +2,9 @@ const initialState = {
   name: "",
   username: "",
   password: "",
-  hometown: {
-    city: "",
-    state: "",
-    country: "",
-  },
+  city: "",
+  state: "",
+  country: "",
 };
 
 export default (state = initialState, action) => {

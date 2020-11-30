@@ -44,12 +44,11 @@ export const login = (credentials, history) => {
             const userInfo = {
                 user: credentials
             }
-            debugger
             return fetch ("http://localhost:3002/api/v1/signup", {
                 credentials: "include",
                 method: "POST",
                 headers: {
-                    "Content_Type": "application/json"
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify(userInfo)
             })

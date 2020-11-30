@@ -80,7 +80,7 @@ export const createAuction = (auctionData, history) => {
          } else {
              dispatch(addAuction(resp.data))
              dispatch(resetAuctionForm())
-             history.push(`/trips/#{resp.data.id}`)
+             history.push(`/auctions/#{resp.data.id}`)
          }   
         })  
             .catch(console.log)
