@@ -8,3 +8,5 @@
 
 
 User.create(name: "Shayan", username: "shaymotion", password: "password")
+
+Guitar.create(brand: "Fender", model: "Stratocaster", year: "1988", price: "$4000")

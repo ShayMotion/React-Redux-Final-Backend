@@ -23,7 +23,7 @@ class Api::V1::GuitarsController < ApplicationController
   
     # POST /users
     def create
-      @guitar = Guitar.new(guitar_params)
+      @guitar =current_user.guitars.build(guitar_params)
   
       if @guitar.save
         render json: @guitar, status: :created, location: @guitar

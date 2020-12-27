@@ -26,7 +26,7 @@ class Api::V1::AuctionsController < ApplicationController
       @auction = current_user.auctions.build(auction_params)
   
       if @auction.save
-        render json: @auction, status: :created, location: @auction
+        render json: AuctionSerializer.new(@auction), status: :created
       else
         error_resp = {
           error: @auction.errors.full_messages.to_sentence
