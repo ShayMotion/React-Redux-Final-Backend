@@ -47,6 +47,7 @@ body {
 }
 
 .NavBar {
+  padding: 20px 40px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -57,7 +58,8 @@ a.active {
 }
 
 #loggedin {
-  font-size: 7px;
+  font-size: 18px;
+  color: white;
 }
 
 h1 {
