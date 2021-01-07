@@ -4,5 +4,5 @@ class Auction < ApplicationRecord
     has_many :brands, through: :guitars
     has_many :models
 
-    validates :name, :user, presence: true 
+    validates :title, :user, presence: true 
 end

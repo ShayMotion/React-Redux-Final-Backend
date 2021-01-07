@@ -3,18 +3,15 @@ class Api::V1::GuitarsController < ApplicationController
   
     # GET /users
     def index
-
-        if logged_in?
-
-      @guitars = current_user.guitars
-  
-      render json: GuitarSerializer.new(@guitars)
-    else
+      if logged_in?
+        @guitars = current_user.guitars
+        render json: GuitarSerializer.new(@guitars)
+      else
         render json: {
             error: "You must be logged in to see guitars"
         }
+      end
     end
-  end
   
     # GET /users/1
     def show
@@ -23,10 +20,10 @@ class Api::V1::GuitarsController < ApplicationController
   
     # POST /users
     def create
-      @guitar =current_user.guitars.build(guitar_params)
+      @guitar = current_user.guitars.build(guitar_params)
   
       if @guitar.save
-        render json: @guitar, status: :created, location: @guitar
+        render json: GuitarSerializer.new(@guitar), status: :created
       else
         error_resp = {
           error: @guitar.errors.full_messages.to_sentence

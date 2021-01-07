@@ -3,18 +3,15 @@ class Api::V1::AuctionsController < ApplicationController
   
     # GET /users
     def index
-
-        if logged_in?
-
-      @auctions = current_user.auctions
-  
-      render json: AuctionSerializer.new(@auctions)
-    else
+      if logged_in?
+        @auctions = current_user.auctions
+        render json: AuctionSerializer.new(@auctions)
+      else
         render json: {
             error: "You must be logged in to see auctions"
         }
+      end
     end
-  end
   
     # GET /users/1
     def show
@@ -68,7 +65,7 @@ class Api::V1::AuctionsController < ApplicationController
   
       # Only allow a trusted parameter "white list" through.
       def auction_params
-        params.require(:auction).permit(:name, :start_date, :end_date)
+        params.require(:auction).permit(:title, :start_date, :end_date)
       end
   end
   

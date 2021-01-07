@@ -1,3 +1,8 @@
+
+
+
+
+
 require 'test_helper'
 
 class AuctionControllerTest < ActionDispatch::IntegrationTest
