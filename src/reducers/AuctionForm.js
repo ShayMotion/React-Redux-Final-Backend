@@ -2,9 +2,9 @@ const initialState = {
     name: "",
     startDate: "",
     endDate: "",
-    }
+}
 
-export default (state=initialState, action) => {
+export default (state = initialState, action) => {
     switch (action.type) {
         case "UPDATE_NEW_AUCTION_FORM":
             const returnVal = {
@@ -14,7 +14,7 @@ export default (state=initialState, action) => {
             return returnVal
         case "RESET_NEW_AUCTION_FORM":
             return initialState
-            case "SET_FORM_DATA_FOR_EDIT":
+        case "SET_FORM_DATA_FOR_EDIT":
             return action.auctionFormData
         default:
             return state

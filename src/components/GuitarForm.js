@@ -52,7 +52,7 @@ const GuitarForm = ({
         onChange={handleChange}
         value={price}
       />
-       <br />
+      <br />
       <input
         type="submit"
         value={editMode ? "Update Guitar" : "Create Guitar"}

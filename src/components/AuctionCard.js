@@ -6,7 +6,7 @@ const AuctionCard = ({ auction }) => {
         auction ? 
 
         <div>
-        <h3>auction.attributes.name</h3>
+        <h3>{auction.attributes.title}</h3>
         <p>{auction.attributes.start_date}</p>
         <p>{auction.attributes.end_date}</p>
         <Link to={`/l=auctions/${auction.id}/edit`}>Edit this auction</Link>

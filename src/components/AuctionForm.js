@@ -33,6 +33,7 @@ const AuctionForm = ({
       />
       <br />
       <input
+        type="date"
         placeholder="start date"
         name="startDate"
         onChange={handleChange}
@@ -40,6 +41,7 @@ const AuctionForm = ({
       />
       <br />
       <input
+        type="date"
         placeholder="end date"
         name="endDate"
         onChange={handleChange}
@@ -58,7 +60,7 @@ const mapStateToProps = (state) => {
   const userId = state.currentUser ? state.currentUser.id : "";
   return {
     formData: state.auctionForm,
-    userId
+    userId,
   };
 };
 

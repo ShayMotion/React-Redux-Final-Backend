@@ -26,40 +26,62 @@ class App extends React.Component {
   render(){
     const { loggedIn, auctions, guitars } = this.props
     return (
-   <div className="App"> 
-   { loggedIn ? <NavBar location={this.props.location}/> : <Home/> }
-   <Switch>
-   <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
-   <Route exact path='/login' component={Login}/>
-   <Route exact path='/auctions' component={MyAuctions}/>
-   <Route exact path='/guitars' component={MyGuitars}/>
-   <Route exact path='/auctions/new' component={NewAuctionFormWrapper}/>
-   <Route exact path='/guitars/new' component={NewGuitarFormWrapper}/>
-   <Route exact path='/auctions/:id' render={props => {
-
-    const auction = auctions.find(auction => auction.id === props.match.params.id)
-    console.log(auction)
-    return <AuctionCard auction={auction} {...props}/>
-    }
-   }/>
-    <Route exact path='/guitars/:id' render={props => {
-
-const guitar = guitars.find(guitar => guitar.id === props.match.params.id)
-console.log(guitar)
-return <GuitarCard guitar={guitar} {...props}/>
-}
-}/>
-<Route exact path='/auctions/id/edit' render={props => {
- const auction = auctions.find(auction => auction.id === props.match.params.id)
-  return <EditAuctionFormWrapper auction={auction} {...props}/>
-}
-}/>
-<Route exact path='/guitars/id/edit' render={props => {
- const guitar = guitars.find(guitar => guitar.id === props.match.params.id)
-  return <EditGuitarFormWrapper guitar={guitar} {...props}/>
-}
-}/>
-      </Switch>
+      <div className="App">
+        {loggedIn ? <NavBar location={this.props.location} /> : <Home />}
+        <Switch>
+          <Route
+            exact
+            path="/signup"
+            render={({ history }) => <Signup history={history} />}
+          />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/auctions" component={MyAuctions} />
+          <Route exact path="/guitars" component={MyGuitars} />
+          <Route exact path="/auctions/new" component={NewAuctionFormWrapper} />
+          <Route exact path="/guitars/new" component={NewGuitarFormWrapper} />
+          <Route
+            exact
+            path="/auctions/:id"
+            render={(props) => {
+              const auction = auctions.find(
+                (auction) => auction.id === props.match.params.id
+              );
+              console.log(auction);
+              return <AuctionCard auction={auction} {...props} />;
+            }}
+          />
+          <Route
+            exact
+            path="/guitars/:id"
+            render={(props) => {
+              const guitar = guitars.find(
+                (guitar) => guitar.id === props.match.params.id
+              );
+              console.log(guitar);
+              return <GuitarCard guitar={guitar} {...props} />;
+            }}
+          />
+          <Route
+            exact
+            path="/auctions/id/edit"
+            render={(props) => {
+              const auction = auctions.find(
+                (auction) => auction.id === props.match.params.id
+              );
+              return <EditAuctionFormWrapper auction={auction} {...props} />;
+            }}
+          />
+          <Route
+            exact
+            path="/guitars/id/edit"
+            render={(props) => {
+              const guitar = guitars.find(
+                (guitar) => guitar.id === props.match.params.id
+              );
+              return <EditGuitarFormWrapper guitar={guitar} {...props} />;
+            }}
+          />
+        </Switch>
       </div>
     );
   }
@@ -68,7 +90,8 @@ return <GuitarCard guitar={guitar} {...props}/>
 const mapStateToProps = state => {
   return ({
     loggedIn: !!state.currentUser,
-      auctions: state.myAuctions
+    auctions: state.myAuctions,
+    guitars: state.myGuitars
   })
 }
 

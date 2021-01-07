@@ -1,4 +1,9 @@
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
+import {
+  createStore,
+  applyMiddleware,
+  compose,
+  combineReducers
+} from 'redux'
 // import usersReducer from './reducer/users'
 import currentUser from './reducers/currentUser'
 import loginForm from './reducers/loginForm'
@@ -7,7 +12,7 @@ import myGuitars from './reducers/myGuitars'
 import signupForm from './reducers/signupForm'
 import auctionForm from './reducers/auctionForm'
 import guitarForm from './reducers/guitarForm'
-import  thunk  from 'redux-thunk' 
+import thunk from 'redux-thunk'
 
 const reducer = combineReducers({
   currentUser,

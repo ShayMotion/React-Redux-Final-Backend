@@ -16,10 +16,10 @@
 
 body {
   background-image: url("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.wallpapersin4k.org%2Fwp-content%2Fuploads%2F2017%2F04%2FBass-Guitar-HD-Wallpaper-14.jpg&f=1&nofb=1");
-  -webkit-background-size: cover;
+  /* -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover; */
 }
 
 .App-header {
