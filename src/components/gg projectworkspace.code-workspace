@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../../guitar-gallery-backend2"
+		},
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5502
+	}
+}

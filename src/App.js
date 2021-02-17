@@ -24,10 +24,10 @@ class App extends React.Component {
   }
 
   render(){
-    const { loggedIn, auctions, guitars } = this.props
+    const { loggedIn, auctions, guitars } = this.props;
     return (
       <div className="App">
-        {loggedIn ? <NavBar location={this.props.location} /> : <Home />}
+        {loggedIn ? <NavBar location={this.props.location} /> : <Home/>}
         <Switch>
           <Route
             exact

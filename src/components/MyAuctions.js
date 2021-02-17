@@ -5,10 +5,11 @@ import { useEffect } from "react";
 import { getMyAuctions } from "../actions/myAuctions";
 
 const MyAuctions = (props) => {
+   var getMyAuctions = props.getMyAuctions;
 
     useEffect(() => {
-        props.getMyAuctions();
-    }, []);
+        getMyAuctions();
+    }, [getMyAuctions]);
 
     const auctionCards =
     props.auctions.length > 0

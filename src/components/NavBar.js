@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { NavLink } from "react-router-dom";
 import {Navbar, Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Logout from "./Logout";
 
 const NavBar = ({ currentUser, loggedIn }) => {
@@ -10,10 +10,10 @@ const NavBar = ({ currentUser, loggedIn }) => {
     <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="/">Guitar Gallery</Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="/auctions">All Auctions</Nav.Link>
-          <Nav.Link href="/auctions/new">Add Auction</Nav.Link>
-          <Nav.Link href="/guitars/new">Add Guitar</Nav.Link>
-          <Nav.Link href="/guitars">All Guitars</Nav.Link>
+          <Nav.Link as={Link} to="/auctions">All Auctions</Nav.Link>
+          <Nav.Link as={Link} to="/auctions/new">Add Auction</Nav.Link>
+          <Nav.Link as={Link} to="/guitars/new">Add Guitar</Nav.Link>
+          <Nav.Link as={Link} to="/guitars">All Guitars</Nav.Link>
         </Nav>
         {loggedIn && (
             <>

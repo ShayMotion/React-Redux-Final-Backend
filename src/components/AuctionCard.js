@@ -1,15 +1,13 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 
 const AuctionCard = ({ auction }) => {
     return (
         auction ? 
 
         <div>
-        <h3>{auction.attributes.title}</h3>
-        <p>{auction.attributes.start_date}</p>
-        <p>{auction.attributes.end_date}</p>
-        <Link to={`/l=auctions/${auction.id}/edit`}>Edit this auction</Link>
+        <h3>Auction Title: <br></br>{auction.attributes.title}</h3>
+        <p>Start Date: <br></br>{auction.attributes.start_date}</p>
+        <p>End Date: <br></br>{auction.attributes.end_date}</p>
         </div> :
         null
     )
