@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_02_221928) do
+ActiveRecord::Schema.define(version: 2021_03_11_043218) do
 
   create_table "auctions", force: :cascade do |t|
     t.string "title"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_221928) do
     t.string "name"
     t.string "auction_url"
     t.string "guitar"
+    t.integer "likes", default: 0
   end
 
   create_table "guitars", force: :cascade do |t|

@@ -1,6 +1,6 @@
 class AuctionSerializer
     include FastJsonapi::ObjectSerializer
-   attributes :title, :start_date, :end_date
+   attributes :title, :start_date, :end_date, :likes
 
    has_many :guitars
 

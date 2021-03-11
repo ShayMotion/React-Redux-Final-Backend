@@ -1,5 +1,5 @@
 class Api::V1::AuctionsController < ApplicationController
-    before_action :set_auction, only: [:show, :update, :destroy]
+    before_action :set_auction, only: [:show, :update, :destroy, :like]
   
     # GET /users
     def index
@@ -56,11 +56,25 @@ class Api::V1::AuctionsController < ApplicationController
     end
   end
 
+  def like
+    puts "adding like to auction #{@auction.id}..."
+    @auction.likes += 1
+    
+    if @auction.save
+      render json: AuctionSerializer.new(@auction), status: :ok
+    else
+      error_resp = {
+        error: @auction.errors.full_messages.to_sentence
+      }
+      render json: error_resp, status: :unprocessable_entity
+    end
+  end
+
   
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_auction
-        @auction = auction.find(params[:id])
+        @auction = Auction.find(params[:id])
       end
   
       # Only allow a trusted parameter "white list" through.
